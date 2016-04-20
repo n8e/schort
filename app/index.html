@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/">
+  <!-- css -->
+  <link rel=stylesheet href="./css/index.css">
+  <title>Insertion Sort Chart JS</title>
+  <!-- scripts -->
+  <script src="./lib/angular/angular.js"></script>
+  <script type="text/javascript" src="./js/sortChart.js"></script>
+</head>
+
+<body ng-app="schort">
+  <div ng-controller="sortController">
+    <div>
+      <h1>Insertion sorter</h1>
+    </div>
+    <div>
+      <p>Insert your array of numbers separated by spaces</p>
+      <input ng-model="numInput" type="radio" value=10>Ten Random</input>
+      <input ng-model="numInput" type="radio" value=25>Twenty Five Random</input>
+      <input ng-model="numInput" type="radio" value=40>Forty Random</input>
+      <button ng-click="randomizer(numInput)">Randomize</button>
+    </div>
+    <div>
+      <p>Test array: {{ testArray }}</p>
+      <button ng-click="plotter()">Plot</button>
+      <button ng-click="sorter()">Sort</button>
+    </div>
+    <div id="stage">
+    </div>
+    <div id="div3"></div>
+    <div ng-model="name"> Developed by {{ name }}</div>
+  </div>
+</body>
+
+</html>

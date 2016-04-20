@@ -1,0 +1,13 @@
+#stage {
+  height:700px;
+  width:1000px;
+  background-color: #eeeeee;
+  padding: 100;
+  align-self: center;
+}
+h1 {
+  color:#545454;
+}
+input {
+  width:2000;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "chart",
+  "version": "1.0.0",
+  "description": "bar chart for sorter",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "bar",
+    "chart",
+    "sorter"
+  ],
+  "author": "NM",
+  "license": "MIT"
+}

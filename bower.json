@@ -1,0 +1,26 @@
+{
+  "name": "chart",
+  "description": "bar chart for sorter",
+  "main": "index.js",
+  "authors": [
+    "NM"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bar",
+    "chart",
+    "sorter"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
