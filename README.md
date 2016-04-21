@@ -1,4 +1,4 @@
-# schort
+# schort.js
 A visualisation of insertion sort
 ## data source
 1. Select one of three radio buttons to choose the size of the array object comprising random numbers.
