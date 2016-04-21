@@ -47,10 +47,6 @@ angular.module('schort', [])
     // plot bar chart on canvas
     $scope.plotter = function() {
       drawBarChart($scope.testArray);
-      var t = 10000000000;
-      while (t >= 0) {
-        t -= 1;
-      }
     };
 
     //creating bar charts
