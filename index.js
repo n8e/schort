@@ -6,20 +6,8 @@ if (env === 'development') {
 var bodyParser = require('body-parser');
 var config = require('./server/config')[env];
 var express = require('express');
-var mongoose = require('mongoose');
 var morgan = require('morgan');
 var app = express();
-
-// connect to Mongo when the app initializes and 
-// drop the db before seeding
-mongoose.connect(config.database, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Server connected to the database.');
-  }
-});
-
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -29,9 +17,6 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/app'));
-
-var api = require('./server/routes/index')(app, express);
-app.use('/api', api);
 
 app.get('/*', function(req, res) {
   res.sendFile('index.html', {
