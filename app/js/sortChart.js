@@ -3,45 +3,15 @@ angular.module('schort', [])
     $scope.name = 'N. Martin';
     $scope.testArray = [];
 
-    // TODO: delete this
-    console.log('here');
-
     // create a random array
     $scope.randomizer = function(set) {
       var num = parseInt(set);
-      console.log(num);
       var arr = [],
         i, n;
       for (i = 0; i < num; i += 1) {
         arr.push(Math.ceil(Math.random() * num));
       }
-      console.log('at random');
       $scope.testArray = arr;
-    };
-
-    // sorter function (insertion sort)
-    $scope.sorter = function() {
-      var i, j, x, n;
-      var cnt = 0;
-      for (i = 1, n = $scope.testArray.length; i < n; i += 1) {
-        if ($scope.testArray[i] >= $scope.testArray[i - 1]) {
-          cnt = cnt;
-          continue;
-        } else if ($scope.testArray[i] < $scope.testArray[i - 1]) {
-          for (j = i; j > 0; j -= 1) {
-            if ($scope.testArray[j] < $scope.testArray[j - 1]) {
-              x = $scope.testArray[j];
-              $scope.testArray.splice(j, 1);
-              $scope.testArray.splice(j - 1, 0, x);
-              cnt += 1;
-              console.log($scope.testArray);
-              $scope.plotter();
-            } else {
-              break;
-            }
-          }
-        }
-      }
     };
 
     // plot bar chart on canvas
@@ -109,11 +79,39 @@ angular.module('schort', [])
             top = heightOfContainer - (height - ((minNumber / totHeight) * heightOfContainer));
           }
         }
-
         context.fillStyle = '#3377BB';
         context.fillRect(marginLeft, top, width, height);
       }
       chartContainer.appendChild(canvasElement);
-      document.getElementById("div3").innerHTML = "There's your Bar Chart";
+      console.log(dataset);
+      document.getElementById("div3").innerHTML = "Set: " + dataset;
     } //end of function drawBarChart
+
+    // sorter function (insertion sort)
+    $scope.sorter = function() {
+      var i, j, x, n;
+      for (i = 1, n = $scope.testArray.length; i < n; i += 1) {
+        if ($scope.testArray[i] >= $scope.testArray[i - 1]) {
+          $scope.plotter();
+          continue;
+        } else if ($scope.testArray[i] < $scope.testArray[i - 1]) {
+          j = i;
+          (function inLoop(j){
+            setTimeout(function() {
+              if ($scope.testArray[j] < $scope.testArray[j - 1]) {
+                x = $scope.testArray[j];
+                $scope.testArray.splice(j, 1);
+                $scope.testArray.splice(j-1, 0, x);
+                $scope.plotter();
+                j--;
+                inLoop(j);
+              } else {
+                $scope.plotter();
+                console.log($scope.testArray[j] + ' is greater than '+ $scope.testArray[j - 1]);
+              }
+            }, 500);
+          })(i);
+        }
+      }
+    };
   });
