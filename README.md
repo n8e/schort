@@ -1,11 +1,7 @@
 #schort.js
 A visualisation of insertion sort
 
-[Blockers](documentation/challenges.md)
-[How to use it](documentation/use.md)
-
-###server
-Though almost needless, there is a node server configuration to use port `3000`. You can run the server by running:
-```
-node index.js
-```
+##contents
+1. [Blockers](documentation/challenges.md)
+2. [How to use it](documentation/use.md)
+3. [Server](documentation/server.md)
