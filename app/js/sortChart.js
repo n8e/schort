@@ -87,30 +87,49 @@ angular.module('schort', [])
       document.getElementById("div3").innerHTML = "Set: " + dataset;
     } //end of function drawBarChart
 
+
+    $scope.isSorted = function(arr) {
+      var res;
+      for (var k = 0, p = arr.length; k < p; k++) {
+        if (arr[k] < arr[k + 1]) {
+          res = true;
+        } else {
+          res = false;
+          break;
+        }
+      }
+      return res;
+    };
+
     // sorter function (insertion sort)
     $scope.sorter = function() {
       var i, j, x, n;
+      console.log('is sorted?', $scope.isSorted($scope.testArray));
       for (i = 1, n = $scope.testArray.length; i < n; i += 1) {
         if ($scope.testArray[i] >= $scope.testArray[i - 1]) {
           $scope.plotter();
           continue;
         } else if ($scope.testArray[i] < $scope.testArray[i - 1]) {
           j = i;
-          (function inLoop(j){
+          (function inLoop(j) {
             setTimeout(function() {
               if ($scope.testArray[j] < $scope.testArray[j - 1]) {
                 x = $scope.testArray[j];
                 $scope.testArray.splice(j, 1);
-                $scope.testArray.splice(j-1, 0, x);
+                $scope.testArray.splice(j - 1, 0, x);
                 $scope.plotter();
                 j--;
                 inLoop(j);
               } else {
-                $scope.plotter();
-                console.log($scope.testArray[j] + ' is greater than '+ $scope.testArray[j - 1]);
+                if ($scope.isSorted($scope.testArray)) {
+                  console.log('sorted');
+                } else {
+                  $scope.sorter();
+                }
               }
-            }, 500);
+            }, 200);
           })(i);
+          continue;
         }
       }
     };
