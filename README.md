@@ -2,6 +2,8 @@
 A visualisation of insertion sort
 
 ##contents
-1. [Blockers](documentation/challenges.md)
-2. [How to use it](documentation/use.md)
-3. [Server](documentation/server.md)
+1. [How to use it](documentation/use.md)
+2. [Server](documentation/server.md)
+
+
+Feel free to contribute to this.
