@@ -4,6 +4,7 @@
   "description": "bar chart for insertion sort algorithm",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "npm test"
   },
   "keywords": [
