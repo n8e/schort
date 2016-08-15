@@ -4,7 +4,7 @@ if (env === 'development') {
 }
 // The main application script, ties everything together.
 var bodyParser = require('body-parser');
-var config = require('./server/config')[env];
+var config = require('./config.js')[env];
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
